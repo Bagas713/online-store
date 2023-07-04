@@ -4,11 +4,11 @@
 @section('content')
 <div class="card mb-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-top: 500px">
             <img src="{{ asset('/storage/'.$viewData["product"]->getImage()) }}" class="img-fluid rounded-start">
         </div>
     <div class="col-md-8">
-        <div class="card-body">
+        <div class="card-body" style="white-space: pre-wrap;">
             <h5 class="card-title">
                 {{ $viewData["product"]->getName() }} (${{ $viewData["product"]->getPrice() }})
             </h5>
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         <div class="col-auto">
-                        <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                        <button class="btn bg-secondary text-white" type="submit">Add to cart</button>
                         </div>
                     </div>
                 </form>
@@ -32,5 +32,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

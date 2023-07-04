@@ -22,6 +22,11 @@ use Illuminate\Support\Facades\Auth;
 // });
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
+// Route::post('/about', 'App\Http\Controllers\HomeController@submit')->name("home.about.submit");
+Route::get('/contact', 'App\Http\Controllers\ContactUsFormController@createForm');
+
+Route::post('/contact', 'App\Http\Controllers\ContactUsFormController@ContactUsForm')->name('contact.store');
+
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
 
@@ -38,6 +43,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('admin')->group(function () {
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
     Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
+    Route::get('/contact', 'App\Http\Controllers\ContactUsFormController@index')->name('about.index');
     Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
     Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
     Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
