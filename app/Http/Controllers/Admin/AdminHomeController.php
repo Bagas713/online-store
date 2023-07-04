@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminHomeController extends Controller
 {
@@ -11,6 +12,7 @@ class AdminHomeController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Admin - Online Store";
+        $viewData["abouts"] = About::all();
         return view('admin.home.index')->with("viewData", $viewData);
     }
 }
